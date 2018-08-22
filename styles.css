@@ -1,3 +1,28 @@
-* {
-  background: coral;
+.nav-bar {
+  height: 60px;
+  background: #00A7E1;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile {
+  margin-left: 30px;
+}
+
+.search-container {
+  margin-right: 30px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.devices-header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 40px;
+  margin-top: 30px;  
 }
