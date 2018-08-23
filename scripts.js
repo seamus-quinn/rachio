@@ -17,11 +17,23 @@ function displayDevices(devices) {
   devices.forEach(device => {
     $('.device-container').append(
       `<div class="device">
-        <h1>${device.name}</h1>
-        <p>${device.status}</p>
+        <div class="device-card">
+          <h1 class="device-name">${device.name}</h1>
+          <p class="device-status">${device.status}</p>
+          <button class="select-zone-button">Select Zones</button>
+          <button class="run-all-zones-button">Run All Zones</button>
+        </div>
+        <div class="zone-container">
+        </div>
        </div>
       `
     )
+  })
+}
+
+function createZone(zones) {
+  return zones.map(zone => {
+    return `<option>${zone.name}</option>`
   })
 }
 

@@ -39,7 +39,34 @@ body {
 
 .device {
   height: 200px;
-  width: 400px;
+  width: 600px;
   border: 1px solid black;
   margin: 5px;
+}
+
+.device-card {
+  display: grid;
+  height: 200px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.device-name, 
+.device-status,
+.select-zone-button,
+.run-all-zones-button {
+  justify-self: center;
+  align-self: center;
+}
+
+.select-zone-button,
+.run-all-zones-button {
+  height: 50px;
+  width: 100px; 
+  background: #00A7E1;
+  color: #fff;
+}
+
+.zone-container {
+  display: none;
 }
