@@ -32,7 +32,9 @@ function displayDevices(devices) {
           <div class="time-list">
             ${populateTimeList(device.zones)}
           </div>
-          <div class="select-list"></div>
+          <div class="select-list">
+            ${populateSelectList(device.zones)}
+          </div>
           <div class="run-button-container">
             <button>Run Selected Zones</button>
           </div>
@@ -58,6 +60,14 @@ function populateTimeList(zones) {
     return `<input type="text" value="${zone.runtime}"/>`
   })
   return timeElements.join('')
+}
+
+function populateSelectList(zones) {
+  let selects = []
+  for(var i = 0; i < zones.length; i++) {
+    selects.push(`<input type="checkbox" checked/>`)
+  }
+  return selects.join('')
 }
 
 getDevices();
