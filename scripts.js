@@ -10,7 +10,19 @@ function getDevices() {
     }
   })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => displayDevices(data.devices))
+}
+
+function displayDevices(devices) {
+  devices.forEach(device => {
+    $('.device-container').append(
+      `<div class="device">
+        <h1>${device.name}</h1>
+        <p>${device.status}</p>
+       </div>
+      `
+    )
+  })
 }
 
 getDevices();
