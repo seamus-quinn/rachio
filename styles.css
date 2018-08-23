@@ -66,15 +66,24 @@ body {
   color: #fff;
 }
 
-.hidden-zone-container {
-  display: none;
-}
-
 .zone-container {
   border: 1px solid black;
   height: 300px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 5fr 1fr;
+}
+
+.hide {
+  display: none;
+}
+
+.zone-list,
+.time-list,
+.select-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
