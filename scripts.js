@@ -24,6 +24,12 @@ function displayDevices(devices) {
           <button class="run-all-zones-button">Run All Zones</button>
         </div>
         <div class="zone-container">
+          <div class="zone-list"></div>
+          <div class="time-list"></div>
+          <div class="select-list"></div>
+          <div class="run-button-container">
+            <button>Run Selected Zones</button>
+          </div>
         </div>
        </div>
       `
