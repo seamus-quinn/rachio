@@ -26,21 +26,38 @@ function displayDevices(devices) {
           <button class="run-all-zones-button">Run All Zones</button>
         </div>
         <div class="hide zone-container">
-          <div class="zone-list"></div>
-          <div class="time-list"></div>
+          <div class="zone-list">
+            ${populateZoneList(device.zones)}
+          </div>
+          <div class="time-list">
+            ${populateTimeList(device.zones)}
+          </div>
           <div class="select-list"></div>
           <div class="run-button-container">
             <button>Run Selected Zones</button>
           </div>
         </div>
-       </div>
-      `
+      </div>`
     )
   })
 }
 
 function toggleZoneDisplay() {
   $('.zone-container').toggleClass('hide')
+}
+
+function populateZoneList(zones) {
+  let zoneElements = zones.map(zone => {
+    return `<p>${zone.name}</p>`
+  })
+  return zoneElements.join('')
+}
+
+function populateTimeList(zones) {
+  let timeElements = zones.map(zone => {
+    return `<input type="text" value="${zone.runtime}"/>`
+  })
+  return timeElements.join('')
 }
 
 getDevices();
