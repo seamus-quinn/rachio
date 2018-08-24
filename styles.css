@@ -31,23 +31,13 @@ body {
   margin-top: 30px;  
 }
 
-.device-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .device {
   width: 600px;
   border: 1px solid black;
   margin: 5px;
-}
-
-.device-card {
   display: grid;
-  height: 200px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 5fr;
 }
 
 .device-name, 
@@ -59,7 +49,8 @@ body {
 }
 
 .select-zone-button,
-.run-all-zones-button {
+.run-all-zones-button,
+.run-selected-button {
   height: 50px;
   width: 100px; 
   background: #00A7E1;
@@ -67,22 +58,36 @@ body {
 }
 
 .zone-container {
-  border: 1px solid black;
-  height: 300px;
+  grid-column: 1 /span 2;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 5fr 1fr;
 }
 
-.hide {
-  display: none;
+.title {
+  text-align: center;
+  height: 30px;
+  font-size: 25px;
 }
 
 .zone-list,
 .time-list,
 .select-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 25px;
+  justify-content: center;
+}
+
+.run-button-container {
+  grid-column: 1 /span 3;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.zone {
+  display: flex;
   justify-content: center;
   align-items: center;
 }

@@ -1,8 +1,6 @@
-const apiKey = "76980330-8f0b-4659-a341-527364acf134"
-
-$(".device-container").on("click", ".select-zone-button", toggleZoneDisplay)
 
 function getDevices() {
+  const apiKey = "76980330-8f0b-4659-a341-527364acf134"
   const url = "https://api.rach.io/1/public/person/2ee8a9ca-741d-4b1a-add3-8a7683e5aa28"
   fetch(url, {
     method: "GET",
@@ -19,24 +17,30 @@ function displayDevices(devices) {
   devices.forEach(device => {
     $('.device-container').append(
       `<div class="device">
-        <div class="device-card">
-          <h1 class="device-name">${device.name}</h1>
-          <p class="device-status">${device.status}</p>
-          <button class="select-zone-button">Select Zones</button>
-          <button class="run-all-zones-button">Run All Zones</button>
-        </div>
-        <div class="hide zone-container">
-          <div class="zone-list">
-            ${populateZoneList(device.zones)}
+        <h1 class="device-name">${device.name}</h1>
+        <p class="device-status">${device.status}</p>
+        <div class="zone-container">
+          <div class="zones">
+            <h1 class="title">Zones</h1>
+            <div class="zone-list">
+              ${populateZoneList(device.zones)}
+            </div>
           </div>
-          <div class="time-list">
-            ${populateTimeList(device.zones)}
+          <div class="time">
+            <h1 class="title">Duration (s)</h1>
+            <div class="time-list">
+              ${populateTimeList(device.zones)}
+            </div>
           </div>
-          <div class="select-list">
-            ${populateSelectList(device.zones)}
+          <div class="selects">
+            <h1 class="title">Run</h1>
+            <div class="select-list">
+              ${populateSelectList(device.zones)}
+            </div>
           </div>
           <div class="run-button-container">
-            <button>Run Selected Zones</button>
+            <button class="run-selected-button">Run Selected Zones
+            </button>
           </div>
         </div>
       </div>`
@@ -44,13 +48,9 @@ function displayDevices(devices) {
   })
 }
 
-function toggleZoneDisplay() {
-  $('.zone-container').toggleClass('hide')
-}
-
 function populateZoneList(zones) {
   let zoneElements = zones.map(zone => {
-    return `<p>${zone.name}</p>`
+    return `<p class="zone">${zone.name}</p>`
   })
   return zoneElements.join('')
 }
