@@ -40,55 +40,28 @@ body {
   grid-template-rows: 1fr 5fr;
 }
 
-.device-name, 
-.device-status,
-.select-zone-button,
-.run-all-zones-button {
-  justify-self: center;
-  align-self: center;
+.table {
+  display: grid;
+  grid-column: 1 /span 2;
+  grid-auto-rows: 25px;
 }
 
-.select-zone-button,
-.run-all-zones-button,
-.run-selected-button {
-  height: 50px;
-  width: 100px; 
+.row {
+  display: grid;
+  grid-column: 1 /span 3;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.submit-button {
   background: #00A7E1;
   color: #fff;
 }
 
-.zone-container {
-  grid-column: 1 /span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 5fr 1fr;
-}
 
-.title {
-  text-align: center;
-  height: 30px;
-  font-size: 25px;
-}
 
-.zone-list,
-.time-list,
-.select-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 25px;
-  justify-content: center;
-}
 
-.run-button-container {
-  grid-column: 1 /span 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.zone {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
+
 
