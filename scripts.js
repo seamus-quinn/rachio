@@ -84,6 +84,7 @@ function createStartObject() {
 }
 
 function startZones(data) {
+  console.log(data)
   const url = "https://api.rach.io/1/public/zone/start_multiple"
   fetch(url, {
     method: "PUT",
@@ -94,9 +95,8 @@ function startZones(data) {
     body: JSON.stringify(data)
   })
   .then(response => console.log(response.status))
+  .catch(error => console.log(error))
 }
-
-
 
 getDevices();
 
