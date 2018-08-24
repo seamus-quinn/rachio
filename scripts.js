@@ -2,6 +2,7 @@ const apiKey = "76980330-8f0b-4659-a341-527364acf134"
 
 $('.device-container').on('click', '.submit-button', createStartObject)
 $('.device-container').on('click', '.checkbox', toggleChecked)
+$('.device-container').on('keyup', '.duration', editDuration)
 
 function getDevices() {
   const url = "https://api.rach.io/1/public/person/2ee8a9ca-741d-4b1a-add3-8a7683e5aa28"
@@ -41,12 +42,12 @@ function createRows(zones) {
     return `<div 
         class="row"
         data-duration="${zone.runtime}"
-        data-id=${zone.id}"
+        data-id="${zone.id}"
         data-sortOrder="${index + 1}"
         data-checked=true
         >
       <p class="zone">${zone.name}</p>
-      <input type="text" value="${zone.runtime}"/>
+      <input class="duration" type="text" value="${zone.runtime}"/>
       <input class="checkbox" type="checkbox" checked/>
      </div>
     `
@@ -59,10 +60,40 @@ function toggleChecked() {
   $(this).parent().attr('data-checked', val)
 }
 
-function createStartObject() {
-  let foo = Array.from($(this).parent().siblings('.table').children('.row')).map(node => node.dataset)
+function editDuration() {
+  let val = $(this).val()
+  $(this).parent().attr('data-duration', val)
+}
 
-  console.log(foo)
+function createStartObject() {
+  let nodes = Array.from($(this).parent().siblings('.table').children('.row')).map(node => node.dataset)
+  let arr = [];
+  nodes.forEach(node => {
+    if(node.checked === 'true') {
+      let obj = Object.assign({ 
+        "id": node.id, 
+        "duration": parseInt(node.duration),
+        "sortOrder": parseInt(node.sortorder) 
+      })
+      arr.push(obj)
+    }
+  })
+  startZones({
+    "zones": arr
+  })
+}
+
+function startZones(data) {
+  const url = "https://api.rach.io/1/public/zone/start_multiple"
+  fetch(url, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => console.log(response.status))
 }
 
 
