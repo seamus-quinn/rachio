@@ -1,8 +1,11 @@
+body {
+  font-family: 'Roboto', sans-serif;  
+}
+
 .nav-bar {
   height: 60px;
   background: #00A7E1;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +21,8 @@
 
 .content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .devices-header {
@@ -26,3 +30,38 @@
   font-size: 40px;
   margin-top: 30px;  
 }
+
+.device {
+  width: 600px;
+  border: 1px solid black;
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 5fr;
+}
+
+.table {
+  display: grid;
+  grid-column: 1 /span 2;
+  grid-auto-rows: 25px;
+}
+
+.row {
+  display: grid;
+  grid-column: 1 /span 3;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.submit-button {
+  background: #00A7E1;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
